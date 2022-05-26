@@ -1,8 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap");
+
+@font-face {
+	font-family: "DatCub-Regular";
+	src: local("DatCub-Regular"),
+		url(.././fonts/DatCub-Regular.ttf) format("truetype");
+	src: local("DatCub-Regular"),
+		url(.././fonts/DatCub-Regular.otf) format("opentype");
+}
+
+@import "./variables.scss";
+@import "./mixins.scss";
+
 html,
 body {
+	@include flexboxCenterColumn;
 	margin: 0;
 	padding: 0;
+	min-height: 100vh;
+	width: 100vw;
+	overflow-x: hidden;
 	font-family: "Exo", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	font-size: 16px;
+	font-weight: map-get($fontWeight, "regular");
+	color: map-get($bitsbotsColors, "black");
+
+	@media (min-width: 768px) {
+		font-size: 18px;
+	}
+}
+
+h1 {
+	font-family: "DatCub-Regular", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 3rem;
+}
+
+h2,
+h3,
+h4,
+h5 {
+	font-weight: map-get($fontWeight, "medium");
+}
+
+h2,
+h3 {
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+h3,
+h4,
+h5 {
+	font-size: 1.25rem;
+}
+
+a h4 {
+	color: map-get($bitsbotsColors, "white-full");
+}
+a h4:hover,
+a h5:hover {
+	text-decoration: underline;
+}
+a h4:active {
+	color: map-get($bitsbotsColors, "cyan-blue-full");
+}
+
+h5 {
+	color: map-get($bitsbotsColors, "dark-blue");
+}
+
+a h5:active {
+	font-weight: map-get($fontWeight, "semiBold");
 }

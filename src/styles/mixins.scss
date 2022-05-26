@@ -1,0 +1,48 @@
+@mixin flexboxCenterRowWrap {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin flexboxCenterColumn {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin flexboxLeftColumn {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: left;
+	align-items: center;
+}
+
+@mixin borderStyleDefault {
+	border: 2px solid map-get($bitsbotsColors, "cyan-blue-full");
+	border-radius: 5px;
+}
+
+@mixin primaryBtn {
+	@include borderStyleDefault;
+	width: 4.5rem;
+	height: 4.5rem;
+	background-color: map-get($bitsbotsColors, "light-blue");
+	font-weight: map-get($fontWeight, "medium");
+
+	&hover {
+		border: 3px solid map-get($bitsbotsColors, "cyan-blue-full");
+		text-decoration: underline;
+		font-weight: map-get($fontWeight, "semiBold");
+	}
+	&active {
+		border: 5px solid map-get($bitsbotsColors, "cyan-blue-full");
+		font-weight: map-get($fontWeight, "bold");
+	}
+
+	@media (min-width: 768px) {
+		width: 5.5rem;
+		height: 5.5rem;
+	}
+}
