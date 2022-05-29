@@ -1,0 +1,31 @@
+@import "../../styles/custom-variables";
+
+.h5 {
+	color: map-get($bitsbotsColors, "white-full");
+	text-transform: uppercase;
+	text-decoration: underline;
+}
+
+.h4 {
+	&:hover {
+		color: map-get($bitsbotsColors, "cyan-blue-full");
+		text-decoration: underline;
+	}
+	&:active {
+		text-decoration: none;
+	}
+
+	.active {
+		color: map-get($bitsbotsColors, "cyan-blue-full");
+		text-decoration: underline;
+	}
+}
+
+.navbarTogglerIcon {
+	&:hover {
+		border: 5px solid map-get($bitsbotsColors, "light-blue");
+	}
+	&:active {
+		border: 6px solid map-get($bitsbotsColors, "light-blue");
+	}
+}

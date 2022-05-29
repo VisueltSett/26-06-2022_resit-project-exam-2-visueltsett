@@ -1,0 +1,89 @@
+//Colors
+//color: map-get($bitsbotsColors, "dark-blue");
+
+$white: #fff;
+$gray-700: rgb(128, 128, 128, 0.5);
+$black: rgba(13, 13, 13, 1);
+$success: rgba(0, 204, 153, 1);
+$error: rgba(235, 3, 49, 1);
+$warning: rgba(235, 135, 3, 1);
+
+$bitsbotsColors: (
+	"dark-blue": rgba(27, 87, 140, 1),
+	"secondary-lighter-blue": rgba(17, 142, 191, 1),
+	"light-blue": rgba(51, 204, 255, 1),
+	"cyan-blue-full": rgba(15, 255, 255, 1),
+	"cyan-blue-light": rgba(15, 255, 255, 0.5),
+	"black": $black,
+	"white-full": $white,
+
+	"white-light": rgba(255, 255, 255, 0.95),
+	"grey": $gray-700,
+	"warning": $warning,
+	"error": $error,
+	"success": $success,
+);
+
+$body-color: map-get($bitsbotsColors, "black");
+
+// Fonts
+$font-family-sans-serif: "Exo", sans-serif;
+$font-family-monospace: "DatCub-Regular", monospace;
+
+$fontWeight: (
+	"semiBold": 600,
+	"medium": 500,
+);
+
+$font-size-base: 1rem;
+
+$h1-font-size: $font-size-base * 3;
+$h2-font-size: $font-size-base * 1.5;
+$h3-font-size: $font-size-base * 1.25;
+$h4-font-size: $font-size-base * 1.25;
+
+//Navigation
+$nav-link-font-size: $h4-font-size;
+$nav-link-font-weight: map-get($fontWeight, "medium");
+$nav-link-color: $white;
+$nav-link-hover-color: $nav-link-color;
+$navbar-toggler-padding-y: 0.75rem;
+$navbar-light-color: $nav-link-color;
+$navbar-light-hover-color: $nav-link-color;
+$navbar-light-active-color: map-get($bitsbotsColors, "cyan-blue-full");
+$navbar-light-toggler-border-color: map-get($bitsbotsColors, "light-blue");
+$navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$black}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='5' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+
+//Offcanvas
+
+$offcanvas-bg-color: map-get($bitsbotsColors, "black");
+$offcanvas-horizontal-width: 30vw;
+
+//Links
+$link-decoration: null;
+$link-hover-decoration: underline;
+$link-color: map-get($bitsbotsColors, "dark-blue");
+
+//Borders, Inputs & Buttons
+$border-width: 3px;
+$border-color: map-get($bitsbotsColors, "light-blue");
+$border-radius: 0.3rem;
+$input-border-color: map-get($bitsbotsColors, "cyan-blue-full");
+
+$input-btn-padding-y: 0.75rem;
+$btn-font-weight: map-get($fontWeight, "medium");
+$btn-link-color: map-get($bitsbotsColors, "black");
+
+//Cards
+$card-border-color: $border-color;
+
+//Modals
+$modal-content-border-color: $border-color;
+$modal-header-border-color: map-get($bitsbotsColors, "black");
+
+//Breadcrumbs
+$breadcrumb-bg: map-get($bitsbotsColors, "black");
+$breadcrumb-divider-color: map-get($bitsbotsColors, "white-full");
+$breadcrumb-active-color: map-get($bitsbotsColors, "cyan-blue-full");
+
+@import "../.././node_modules/bootstrap/scss/bootstrap.scss";

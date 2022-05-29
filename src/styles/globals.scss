@@ -8,8 +8,16 @@
 		url(.././fonts/DatCub-Regular.otf) format("opentype");
 }
 
-@import "./variables.scss";
-@import "./mixins.scss";
+@import "./custom-variables.scss";
+@import "./custom-mixins.scss";
+
+#root {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	width: 100vw;
+	overflow-x: hidden;
+}
 
 html,
 body {
@@ -19,12 +27,10 @@ body {
 	min-height: 100vh;
 	width: 100vw;
 	overflow-x: hidden;
-	font-family: "Exo", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-size: 16px;
-	font-weight: map-get($fontWeight, "regular");
-	color: map-get($bitsbotsColors, "black");
+	font-family: $font-family-sans-serif;
+	font-size: $font-size-base;
+	font-weight: $font-weight-base;
+	color: $body-color;
 
 	@media (min-width: 768px) {
 		font-size: 18px;
@@ -32,15 +38,11 @@ body {
 }
 
 h1 {
-	font-family: "DatCub-Regular", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-size: 3rem;
+	font-family: $font-family-monospace;
 }
 
 h2,
 h3,
-h4,
 h5 {
 	font-weight: map-get($fontWeight, "medium");
 }
@@ -50,30 +52,139 @@ h3 {
 	text-transform: uppercase;
 }
 
-h2 {
-	font-size: 1.5rem;
-}
-h3,
-h4,
-h5 {
-	font-size: 1.25rem;
-}
-
-a h4 {
-	color: map-get($bitsbotsColors, "white-full");
-}
-a h4:hover,
-a h5:hover {
-	text-decoration: underline;
-}
-a h4:active {
-	color: map-get($bitsbotsColors, "cyan-blue-full");
-}
-
 h5 {
 	color: map-get($bitsbotsColors, "dark-blue");
 }
 
-a h5:active {
-	font-weight: map-get($fontWeight, "semiBold");
+a {
+	cursor: pointer;
+	h5:active {
+		font-weight: map-get($fontWeight, "semiBold");
+	}
 }
+
+.container {
+	@include make-container($gutter: $container-padding-x);
+}
+
+.navbar {
+	background-color: map-get($bitsbotsColors, "white-full") !important;
+}
+
+/*Loader styles*/
+
+.loader_container {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	height: 2rem;
+	width: 2rem;
+	transform: translateX(-50%) translateY(-50%);
+}
+.loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 2rem;
+	width: 2rem;
+}
+.loader > .square {
+	position: absolute;
+	height: 1.5rem;
+	width: 1.5rem;
+	background: rgba(47, 45, 94, 1);
+	-webkit-animation: move 2s linear infinite;
+	animation: move 2s linear infinite;
+}
+.loader > .square:nth-of-type(1) {
+	top: -2rem;
+	left: -2rem;
+	-webkit-animation-delay: -1.75s;
+	animation-delay: -1.75s;
+}
+.loader > .square:nth-of-type(2) {
+	top: -2rem;
+	left: 0;
+	-webkit-animation-delay: -1.5s;
+	animation-delay: -1.5s;
+}
+.loader > .square:nth-of-type(3) {
+	top: -2rem;
+	left: 2rem;
+	-webkit-animation-delay: -1.25s;
+	animation-delay: -1.25s;
+}
+.loader > .square:nth-of-type(4) {
+	top: 0;
+	left: 2rem;
+	-webkit-animation-delay: -1s;
+	animation-delay: -1s;
+}
+.loader > .square:nth-of-type(5) {
+	top: 2rem;
+	left: 2rem;
+	-webkit-animation-delay: -0.75s;
+	animation-delay: -0.75s;
+}
+.loader > .square:nth-of-type(6) {
+	top: 2rem;
+	left: 0;
+	-webkit-animation-delay: -0.5s;
+	animation-delay: -0.5s;
+}
+.loader > .square:nth-of-type(7) {
+	top: 2rem;
+	left: -2rem;
+	-webkit-animation-delay: -0.25s;
+	animation-delay: -0.25s;
+}
+.loader > .square:nth-of-type(8) {
+	top: 0;
+	left: -2rem;
+	-webkit-animation-delay: 0s;
+	animation-delay: 0s;
+}
+@-webkit-keyframes move {
+	0% {
+		transform: rotate(0) scale(1);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+	10% {
+		transform: rotate(90deg) scale(0);
+	}
+	50% {
+		transform: rotate(90deg) scale(0);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+	60% {
+		transform: rotate(180deg) scale(1);
+	}
+	100% {
+		transform: rotate(180deg) scale(1);
+	}
+}
+@keyframes move {
+	0% {
+		transform: rotate(0) scale(1);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+	10% {
+		transform: rotate(90deg) scale(0);
+	}
+	50% {
+		transform: rotate(90deg) scale(0);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+	60% {
+		transform: rotate(180deg) scale(1);
+	}
+	100% {
+		transform: rotate(180deg) scale(1);
+	}
+}
+
+/*Loader styles end*/

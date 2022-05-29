@@ -1,8 +1,13 @@
 import GameStore from "./pages/GameStore";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Navigation from "./components/navigation/Navigation.jsx";
 
 function App() {
-	return <GameStore />;
+	return (
+		<>
+			<Navigation />
+			<GameStore />
+		</>
+	);
 }
 
 export default App;
