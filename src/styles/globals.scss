@@ -41,7 +41,10 @@ h1 {
 	font-family: $font-family-monospace;
 }
 
-h2,
+h2 {
+	font-weight: $font-weight-normal !important;
+}
+
 h3,
 h5 {
 	font-weight: map-get($fontWeight, "medium");

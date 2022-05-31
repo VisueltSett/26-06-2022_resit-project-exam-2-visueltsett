@@ -16,7 +16,6 @@ $bitsbotsColors: (
 	"cyan-blue-light": rgba(15, 255, 255, 0.5),
 	"black": $black,
 	"white-full": $white,
-
 	"white-light": rgba(255, 255, 255, 0.95),
 	"grey": $gray-700,
 	"warning": $warning,
@@ -35,7 +34,7 @@ $fontWeight: (
 	"medium": 500,
 );
 
-$font-size-base: 1rem;
+$font-size-base: 0.9rem;
 
 $h1-font-size: $font-size-base * 3;
 $h2-font-size: $font-size-base * 1.5;
@@ -64,11 +63,12 @@ $link-decoration: null;
 $link-hover-decoration: underline;
 $link-color: map-get($bitsbotsColors, "dark-blue");
 
-//Borders, Inputs & Buttons
-$border-width: 3px;
+//Borders, Forms, Inputs & Buttons
+$border-width: 2px;
 $border-color: map-get($bitsbotsColors, "light-blue");
 $border-radius: 0.3rem;
-$input-border-color: map-get($bitsbotsColors, "cyan-blue-full");
+$input-border-color: map-get($bitsbotsColors, "light-blue");
+$input-bg: map-get($bitsbotsColors, "white-full") !important;
 
 $input-btn-padding-y: 0.75rem;
 $btn-font-weight: map-get($fontWeight, "medium");
