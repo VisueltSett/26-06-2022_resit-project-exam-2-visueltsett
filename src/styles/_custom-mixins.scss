@@ -1,6 +1,8 @@
+@import "./custom-variables";
+
 @mixin flexboxCenterRowWrap {
 	display: flex;
-	flex-flow: row nowrap;
+	flex-flow: row wrap;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -17,35 +19,4 @@
 	flex-flow: column nowrap;
 	justify-content: left;
 	align-items: center;
-}
-
-@mixin borderStyleDefault {
-	border: 3px solid map-get($bitsbotsColors, "cyan-blue-full");
-	border-radius: 5px;
-}
-
-@mixin primaryBtn {
-	@include borderStyleDefault;
-	width: 4.5rem;
-	height: 4.5rem;
-	background-color: map-get($bitsbotsColors, "light-blue");
-
-	&:hover {
-		border: 4px solid map-get($bitsbotsColors, "cyan-blue-full");
-		font-weight: map-get($fontWeight, "semiBold");
-	}
-	&:active {
-		border: 6px solid map-get($bitsbotsColors, "cyan-blue-full");
-		font-weight: map-get($fontWeight, "bold");
-
-		&:disabled {
-			background-color: map-get($bitsbotsColors, "cyan-blue-light");
-			color: map-get($bitsbotsColors, "grey");
-		}
-	}
-
-	@media (min-width: 768px) {
-		width: 5.5rem;
-		height: 5.5rem;
-	}
 }

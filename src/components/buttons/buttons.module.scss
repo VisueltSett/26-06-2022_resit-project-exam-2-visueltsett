@@ -1,0 +1,36 @@
+@import "../../styles/custom-variables";
+
+.btnPrimary {
+	float: right;
+	width: 4rem;
+	height: 4rem;
+	background: map-get($bitsbotsColors, "light-blue");
+	color: $black !important;
+	border: 0.1rem solid map-get($bitsbotsColors, "cyan-blue-full");
+
+	&:hover {
+		border: 0.2rem solid map-get($bitsbotsColors, "cyan-blue-full");
+		font-weight: map-get($fontWeight, "medium") !important;
+		background: map-get($bitsbotsColors, "light-blue");
+		color: $btn-link-hover-color !important;
+		text-decoration: underline;
+	}
+	&:active {
+		border: 0.3rem solid map-get($bitsbotsColors, "cyan-blue-full");
+		font-weight: map-get($fontWeight, "semiBold");
+	}
+
+	@media (min-width: 940px) {
+		width: 4rem;
+		height: 4rem;
+	}
+}
+.disabled {
+	background: map-get($bitsbotsColors, "cyan-blue-light") !important;
+	color: map-get($bitsbotsColors, "grey") !important;
+}
+
+.active {
+	border: 0.3rem solid map-get($bitsbotsColors, "cyan-blue-full");
+	font-weight: map-get($fontWeight, "semiBold");
+}

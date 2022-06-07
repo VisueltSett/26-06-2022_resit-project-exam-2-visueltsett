@@ -1,22 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-
+import React, { useState } from "react";
+import { FiCheck } from "react-icons/fi";
 import Button from "react-bootstrap/Button";
+import buttonStyles from "./buttons.module.scss";
 
-function BtnPrimary({ title }) {
+function BtnPrimary({ buttonLabel }) {
 	return (
-		<Button type="button" class="btn btn-primary">
-			{title}
-		</Button>
+		<>
+			<Button
+				name={buttonLabel}
+				className={`${buttonStyles.btnPrimary} ${buttonStyles.disabled}`}
+			>
+				<FiCheck /> {buttonLabel}
+			</Button>
+		</>
 	);
 }
-
-BtnPrimary.propTypes = {
-	title: PropTypes.string.isRequired,
-};
-
-BtnPrimary.defaultProps = {
-	title: "Button",
-};
 
 export default BtnPrimary;

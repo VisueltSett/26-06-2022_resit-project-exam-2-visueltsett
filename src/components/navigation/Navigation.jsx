@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, Container, Offcanvas, Button } from "react-bootstrap";
+import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import navStyles from "./Navigation.module.scss";
 import Heading from ".././heading/Heading";
 

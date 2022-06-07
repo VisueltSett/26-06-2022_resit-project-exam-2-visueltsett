@@ -2,7 +2,7 @@
 //color: map-get($bitsbotsColors, "dark-blue");
 
 $white: #fff;
-$gray-700: rgb(128, 128, 128, 0.5);
+$gray: rgb(13, 13, 13, 0.65);
 $black: rgba(13, 13, 13, 1);
 $success: rgba(0, 204, 153, 1);
 $error: rgba(235, 3, 49, 1);
@@ -17,7 +17,7 @@ $bitsbotsColors: (
 	"black": $black,
 	"white-full": $white,
 	"white-light": rgba(255, 255, 255, 0.95),
-	"grey": $gray-700,
+	"grey": $gray,
 	"warning": $warning,
 	"error": $error,
 	"success": $success,
@@ -53,6 +53,13 @@ $navbar-light-active-color: map-get($bitsbotsColors, "cyan-blue-full");
 $navbar-light-toggler-border-color: map-get($bitsbotsColors, "light-blue");
 $navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$black}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='5' d='M4 7h22M4 15h22M4 23h22'/></svg>");
 
+//Nav-tabs
+$nav-tabs-border-color: $white;
+$nav-tabs-link-hover-border-color: map-get($bitsbotsColors, "cyan-blue-full");
+$nav-tabs-link-active-color: $black;
+$nav-tabs-link-active-bg: map-get($bitsbotsColors, "white-light");
+$nav-tabs-link-active-border-color: map-get($bitsbotsColors, "light-blue");
+
 //Offcanvas
 
 $offcanvas-bg-color: map-get($bitsbotsColors, "black");
@@ -64,15 +71,36 @@ $link-hover-decoration: underline;
 $link-color: map-get($bitsbotsColors, "dark-blue");
 
 //Borders, Forms, Inputs & Buttons
-$border-width: 2px;
+$border-width: 0.15rem;
 $border-color: map-get($bitsbotsColors, "light-blue");
 $border-radius: 0.3rem;
+$border-radius-sm: 0.3rem;
 $input-border-color: map-get($bitsbotsColors, "light-blue");
 $input-bg: map-get($bitsbotsColors, "white-full") !important;
 
-$input-btn-padding-y: 0.75rem;
-$btn-font-weight: map-get($fontWeight, "medium");
-$btn-link-color: map-get($bitsbotsColors, "black");
+$input-btn-padding-y: 0.25rem;
+$input-btn-padding-y-sm: 0.25rem;
+$input-btn-padding-y-lg: 0.25rem;
+$input-btn-padding-x: 0.25rem;
+$input-btn-padding-x-sm: 0.25rem;
+$input-btn-padding-x-lg: 0.25rem;
+$input-btn-font-size: 0.9rem;
+$input-btn-font-size-sm: 0.9rem;
+$input-btn-font-size-lg: 0.9rem;
+$input-btn-font-weight: map-get($fontWeight, "medium");
+$btn-link-color: $black !important;
+$btn-link-hover-color: $black !important;
+$btn-link-disabled-color: map-get($bitsbotsColors, "grey") !important;
+$btn-disabled-opacity: 0.5 !important;
+
+$btn-hover-bg-shade-amount: 0;
+$btn-active-bg-shade-amount: 0;
+$btn-active-bg-tint-amount: 0;
+$btn-hover-bg-tint-amount: 0;
+$btn-hover-border-shade-amount: 0;
+$btn-hover-border-tint-amount: 0;
+$btn-active-border-shade-amount: 0;
+$btn-active-border-tint-amount: 0;
 
 //Cards
 $card-border-color: $border-color;

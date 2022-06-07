@@ -33,7 +33,7 @@ body {
 	color: $body-color;
 
 	@media (min-width: 768px) {
-		font-size: 18px;
+		font-size: 17px;
 	}
 }
 
@@ -72,6 +72,40 @@ a {
 
 .navbar {
 	background-color: map-get($bitsbotsColors, "white-full") !important;
+}
+
+.nav-tabs .nav-link {
+	text-transform: uppercase;
+	font-size: 1rem;
+	font-weight: $font-weight-normal;
+	padding: 0.35rem 2.5rem;
+	min-width: 10rem;
+	margin: 1rem;
+	border: 0.15rem solid map-get($bitsbotsColors, "white-full") !important;
+	border-radius: 0.3rem !important;
+
+	&:hover {
+		border: 0.2rem solid map-get($bitsbotsColors, "cyan-blue-full") !important;
+		text-decoration: underline !important;
+	}
+}
+
+.nav-tabs .nav-link.active {
+	border: 0.15rem solid map-get($bitsbotsColors, "light-blue") !important;
+
+	text-decoration: underline !important;
+}
+
+ul.nav-tabs {
+	@include flexboxCenterRowWrap;
+	padding-inline-start: 0 !important;
+	margin: 0 auto 2rem !important;
+	justify-content: space-around;
+	border-bottom: 0 !important;
+
+	@media (min-width: 580px) {
+		margin-bottom: 1rem !important;
+	}
 }
 
 /*Loader styles*/
