@@ -16,9 +16,9 @@ function Landingpage() {
 				{" "}
 				<img
 					src="../../../images/bitsbotslogo-white.svg"
-					width="270"
-					height="280"
-					className="d-block align-center mx-auto mt-5"
+					width="300"
+					height="310"
+					className="d-block align-center mx-auto mt-2"
 					alt="Bitsbots logo"
 				/>
 			</Container>

@@ -1,69 +1,98 @@
-import React, { useState } from "react";
+import React from "react";
 import Heading from "../heading/Heading";
 import Form from "react-bootstrap/Form";
 import formStyles from "./Form.module.scss";
 import BtnPrimary from "../buttons/BtnPrimary";
-import * as Yup from "yup";
-import { Formik, ErrorMessage } from "formik";
+import { useFormik } from "formik";
+import { loginSchema } from "./Schemas";
+
+const onSubmit = async (values, actions) => {
+	console.log(values);
+	console.log(actions);
+	await new Promise((resolve) => setTimeout(resolve, 1000));
+	actions.resetForm();
+};
 
 function Login() {
-	const validationSchema = Yup.object({
-		name: Yup.string().required(),
-		email: Yup.string().email().required(),
-		password: Yup.string().min(8).max(15).required(),
-		confirmPassword: Yup.string().oneOf([Yup.ref("password"), null]),
-		title: Yup.string().required(),
-		review: Yup.string().required(),
-		rating: Yup.number().min(1).max(10).required(),
-		date: Yup.date().default(() => new Date()),
-		wouldRecommend: Yup.boolean().default(false),
+	const {
+		values,
+		errors,
+		touched,
+		handleChange,
+		handleBlur,
+		handleSubmit,
+		isSubmitting,
+	} = useFormik({
+		initialValues: {
+			email: "",
+			password: "",
+		},
+		validationSchema: loginSchema,
+		onSubmit,
 	});
 
-	const initialValues = {
-		name: "",
-		email: "",
-		password: "",
-		confirmPassword: "",
-		//rating: "",
-		//date: new Date(),
-		//wouldRecommend: false,
-		//product: "",
-	};
-
-	const onSubmit = (values) => {
-		alert(JSON.stringify(values));
-	};
-
-	const renderError = (message) => <p className="error warning">{message}</p>;
+	console.log(errors);
 
 	return (
-		<Formik
-			initialValues={initialValues}
-			validationSchema={validationSchema}
-			onSubmit={async (values, { resetForm }) => {
-				await onSubmit(values);
-				resetForm();
-			}}
-		>
-			<Form className={formStyles.form}>
-				<Heading title="Login" size="2" />
-				<Form.Group className="mb-3" controlId="Email">
-					<Form.Label>Email address</Form.Label>
-					<Form.Control name="email" type="email" placeholder="Enter email" />
-					<ErrorMessage name="email" render={renderError} />
-				</Form.Group>
-				<Form.Group className="mb-3" controlId="Password">
-					<Form.Label>Password</Form.Label>
-					<Form.Control
-						name="password"
-						type="password"
-						placeholder="Password"
-					/>
-					<ErrorMessage name="password" render={renderError} />
-				</Form.Group>
-				<BtnPrimary buttonLabel="Login">Login</BtnPrimary>
-			</Form>
-		</Formik>
+		<Form className={formStyles.form} onSubmit={handleSubmit}>
+			<Heading title="Login" size="2" />
+			<Form.Group className="mb-3" controlId="Email">
+				<Form.Label>Email address</Form.Label>
+				<Form.Control
+					value={values.email}
+					onChange={handleChange}
+					onBlur={handleBlur}
+					className={
+						errors.email && touched.email
+							? `${formStyles.formControlError}`
+							: !errors.email && touched.email
+							? `${formStyles.formControlSuccess}`
+							: ""
+					}
+					name="email"
+					type="email"
+					placeholder="Enter email"
+				/>
+				{errors.email && touched.email && (
+					<p className={formStyles.error}>{errors.email}</p>
+				)}
+			</Form.Group>
+			<Form.Group className="mb-3" controlId="Password">
+				<Form.Label>Password</Form.Label>
+				<Form.Control
+					value={values.password}
+					onChange={handleChange}
+					onBlur={handleBlur}
+					className={
+						errors.password && touched.password
+							? `${formStyles.formControlError}`
+							: !errors.password && touched.password
+							? `${formStyles.formControlSuccess}`
+							: ""
+					}
+					name="password"
+					type="password"
+					placeholder="Password"
+				/>
+				{errors.password && touched.password && (
+					<p className={formStyles.error}>{errors.password}</p>
+				)}
+			</Form.Group>
+			<BtnPrimary
+				disabled={
+					isSubmitting ||
+					!touched.email ||
+					!touched.password ||
+					errors.email ||
+					errors.password
+						? true
+						: !errors.email && !errors.password
+						? false
+						: true
+				}
+				buttonLabel="Login"
+			/>
+		</Form>
 	);
 }
 

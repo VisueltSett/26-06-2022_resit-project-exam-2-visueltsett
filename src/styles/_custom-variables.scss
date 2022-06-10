@@ -24,6 +24,7 @@ $bitsbotsColors: (
 );
 
 $body-color: map-get($bitsbotsColors, "black");
+$body-bg: map-get($bitsbotsColors, "white-light");
 
 // Fonts
 $font-family-sans-serif: "Exo", sans-serif;
@@ -90,8 +91,8 @@ $input-btn-font-size-lg: 0.9rem;
 $input-btn-font-weight: map-get($fontWeight, "medium");
 $btn-link-color: $black !important;
 $btn-link-hover-color: $black !important;
-$btn-link-disabled-color: map-get($bitsbotsColors, "grey") !important;
-$btn-disabled-opacity: 0.5 !important;
+$btn-link-disabled-color: map-get($bitsbotsColors, "black") !important;
+$btn-disabled-opacity: 0.35 !important;
 
 $btn-hover-bg-shade-amount: 0;
 $btn-active-bg-shade-amount: 0;

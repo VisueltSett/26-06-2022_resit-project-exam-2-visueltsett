@@ -12,7 +12,7 @@ function Navigation() {
 					navbar="light"
 					bg="light"
 					expand="false"
-					className="mb-3"
+					className={navStyles.navbar}
 				>
 					<Container fluid>
 						<Navbar.Brand href="#">

@@ -1,11 +1,12 @@
 //import GameStore from "./pages/GameStore";
-//import Navigation from "./components/navigation/Navigation.jsx";
-import Landingpage from "./pages/Landingpage";
+import Navigation from "./components/navigation/Navigation.jsx";
+import Checkout from "./pages/Checkout";
 
 function App() {
 	return (
 		<>
-			<Landingpage />
+			<Navigation />
+			<Checkout />
 		</>
 	);
 }

@@ -1,5 +1,9 @@
 @import "../../styles/custom-variables";
 
+.navbar {
+	background: rgba(255, 255, 255, 0) !important;
+}
+
 .h5 {
 	color: map-get($bitsbotsColors, "white-full");
 	text-transform: uppercase;
@@ -22,10 +26,12 @@
 }
 
 .navbarTogglerIcon {
+	background-color: map-get($bitsbotsColors, "white-full");
+	border: 2px solid map-get($bitsbotsColors, "light-blue");
 	&:hover {
-		border: 5px solid map-get($bitsbotsColors, "light-blue");
+		border-width: 3px;
 	}
 	&:active {
-		border: 6px solid map-get($bitsbotsColors, "light-blue");
+		border: 3px solid map-get($bitsbotsColors, "cyan-blue-full");
 	}
 }
