@@ -4,7 +4,7 @@
 .form {
 	background: map-get($bitsbotsColors, "white-light");
 	border-radius: 0.3rem;
-	border: 0.15rem solid map-get($bitsbotsColors, "light-blue");
+	border: 0.05rem solid map-get($bitsbotsColors, "light-blue");
 	max-width: 100vw;
 	min-height: 320px;
 	padding: 1rem;
@@ -37,6 +37,34 @@
 		min-width: 500px !important;
 		max-width: 500px !important;
 		height: 500px;
+	}
+}
+
+.checkoutForm {
+	@extend .registerForm;
+
+	text-align: left;
+	min-height: 600px !important;
+
+	@media (min-width: 860px) {
+		min-width: 600px !important;
+		max-width: 600px !important;
+		height: 600px;
+	}
+}
+
+.shoppingCart {
+	@include flexboxCenterColumn;
+	text-align: center;
+
+	margin: 0 auto 1rem !important;
+
+	svg {
+		font-size: 1.5rem !important;
+		margin-bottom: 0.5rem !important;
+	}
+	h5 {
+		margin-bottom: 0.15rem !important;
 	}
 }
 

@@ -17,6 +17,7 @@ $bitsbotsColors: (
 	"black": $black,
 	"white-full": $white,
 	"white-light": rgba(255, 255, 255, 0.95),
+	"white-overlay-bg": rgba(255, 255, 255, 0),
 	"grey": $gray,
 	"warning": $warning,
 	"error": $error,
@@ -37,10 +38,11 @@ $fontWeight: (
 
 $font-size-base: 0.9rem;
 
-$h1-font-size: $font-size-base * 3;
-$h2-font-size: $font-size-base * 1.5;
-$h3-font-size: $font-size-base * 1.25;
-$h4-font-size: $font-size-base * 1.25;
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 1.25;
+$h3-font-size: $font-size-base * 1.1;
+$h4-font-size: $font-size-base * 1.1;
+$h5-font-size: $font-size-base;
 
 //Navigation
 $nav-link-font-size: $h4-font-size;
@@ -72,7 +74,7 @@ $link-hover-decoration: underline;
 $link-color: map-get($bitsbotsColors, "dark-blue");
 
 //Borders, Forms, Inputs & Buttons
-$border-width: 0.15rem;
+$border-width: 0.05rem;
 $border-color: map-get($bitsbotsColors, "light-blue");
 $border-radius: 0.3rem;
 $border-radius-sm: 0.3rem;

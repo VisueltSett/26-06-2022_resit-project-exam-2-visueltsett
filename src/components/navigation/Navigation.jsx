@@ -18,9 +18,9 @@ function Navigation() {
 						<Navbar.Brand href="#">
 							{" "}
 							<img
-								src="../../../images/bitsbotslogo-black.svg"
-								width="190"
-								height="200"
+								src="../../../images/bitsbotslogo-white.svg"
+								width="200"
+								height="210"
 								className="d-inline-block align-top"
 								alt="Bitsbots logo"
 							/>
