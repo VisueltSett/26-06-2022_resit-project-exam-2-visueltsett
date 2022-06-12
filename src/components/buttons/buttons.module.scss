@@ -4,6 +4,8 @@
 	float: right;
 	width: 4rem;
 	height: 4rem;
+	padding-top: 0;
+	line-height: 1.2;
 	background: map-get($bitsbotsColors, "light-blue");
 	color: $black !important;
 	border: 0.1rem solid map-get($bitsbotsColors, "cyan-blue-full");
@@ -20,9 +22,9 @@
 		font-weight: map-get($fontWeight, "semiBold");
 	}
 
-	@media (min-width: 940px) {
-		width: 4rem;
-		height: 4rem;
+	@media (min-width: 768px) {
+		width: 4.25rem;
+		height: 4.25rem;
 	}
 }
 .disabled {

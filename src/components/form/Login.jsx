@@ -18,10 +18,11 @@ function Login() {
 		values,
 		errors,
 		touched,
+		isSubmitting,
+		isValid,
 		handleChange,
 		handleBlur,
 		handleSubmit,
-		isSubmitting,
 	} = useFormik({
 		initialValues: {
 			email: "",
@@ -81,14 +82,8 @@ function Login() {
 			<BtnPrimary
 				disabled={
 					isSubmitting ||
-					!touched.email ||
-					!touched.password ||
-					errors.email ||
-					errors.password
-						? true
-						: !errors.email && !errors.password
-						? false
-						: true
+					!isValid ||
+					(Object.keys(touched).length === 0 && touched.constructor === Object)
 				}
 				buttonLabel="Login"
 			/>

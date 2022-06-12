@@ -11,9 +11,12 @@
 	margin: 0rem auto 1.5rem !important;
 
 	input {
-		font-size: $font-size-base !important;
+		font-size: 0.8rem !important;
 		padding: 0.5rem;
 		line-height: 1rem;
+	}
+	label {
+		margin-bottom: 0.15rem;
 	}
 
 	@media (min-width: 340px) {
@@ -44,13 +47,22 @@
 	@extend .registerForm;
 
 	text-align: left;
-	min-height: 600px !important;
+	min-height: 1000px !important;
+
+	@media (min-width: 680px) {
+		width: 80vw;
+		max-width: 550px;
+	}
 
 	@media (min-width: 860px) {
-		min-width: 600px !important;
-		max-width: 600px !important;
-		height: 600px;
+		min-width: 700px !important;
+		max-width: 700px !important;
 	}
+}
+
+.cardDetailsBlock {
+	margin-top: 2rem !important;
+	padding: 0;
 }
 
 .shoppingCart {

@@ -19,6 +19,7 @@ function Register() {
 		errors,
 		touched,
 		isSubmitting,
+		isValid,
 		handleChange,
 		handleBlur,
 		handleSubmit,
@@ -113,14 +114,8 @@ function Register() {
 				buttonLabel="Register"
 				disabled={
 					isSubmitting ||
-					!touched.email ||
-					!touched.password ||
-					errors.email ||
-					errors.password
-						? true
-						: !errors.email && !errors.password
-						? false
-						: true
+					!isValid ||
+					(Object.keys(touched).length === 0 && touched.constructor === Object)
 				}
 			/>
 		</Form>
