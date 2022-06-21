@@ -1,19 +1,50 @@
 import React from "react";
+
+//import components
 import Heading from "../heading/Heading";
-import Form from "react-bootstrap/Form";
-import formStyles from "./Form.module.scss";
 import BtnPrimary from "../buttons/BtnPrimary";
-import { useFormik } from "formik";
 import { registerSchema } from "./Schemas";
+//import { useLocalStorage } from "../utils/useLocalStorage";
 
-const onSubmit = async (values, actions) => {
-	console.log(values);
-	console.log(actions);
-	await new Promise((resolve) => setTimeout(resolve, 1000));
-	actions.resetForm();
-};
+//import styles
+import formStyles from "./Form.module.scss";
 
-function Register() {
+//import Bootstrap
+import Form from "react-bootstrap/Form";
+
+//import Formik
+import { useFormik } from "formik";
+
+function Register({
+	userEmail,
+	setUserEmail,
+	setUserPassword,
+	users,
+	setUsers,
+}) {
+	const onSubmit = async (values, actions) => {
+		if (values.email === userEmail) {
+			alert(
+				"This email address is already registered, please try  again with a different email address, or double check your password"
+			);
+		} else {
+			setUserEmail(values.email);
+			setUserPassword(values.password);
+
+			const newUser = {
+				email: values.email,
+				password: values.password,
+			};
+			setUsers([...users, newUser]);
+		}
+
+		console.log(values);
+		console.log(actions);
+
+		await new Promise((resolve) => setTimeout(resolve, 3000));
+		actions.resetForm();
+	};
+
 	const {
 		values,
 		errors,
@@ -111,7 +142,7 @@ function Register() {
 				)}
 			</Form.Group>
 			<BtnPrimary
-				buttonLabel="Register"
+				buttonLabel={isSubmitting ? "Sending..." : "Register"}
 				disabled={
 					isSubmitting ||
 					!isValid ||

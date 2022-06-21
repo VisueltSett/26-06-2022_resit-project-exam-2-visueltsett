@@ -6,14 +6,24 @@ import BtnPrimary from "../buttons/BtnPrimary";
 import { useFormik } from "formik";
 import { loginSchema } from "./Schemas";
 
-const onSubmit = async (values, actions) => {
-	console.log(values);
-	console.log(actions);
-	await new Promise((resolve) => setTimeout(resolve, 1000));
-	actions.resetForm();
-};
+function Login(userEmail, userPassword, setUserEmail, setUserPassword) {
+	const onSubmit = async (values, actions) => {
+		/*	let registeredUsers = JSON.parse(localStorage.getItem("users"));
+			registeredUsers.map(
+				(user) => {if(user.email === userEmail && user.password === userPassword
+			)
+		) {
+			alert("Success");
+		} else {
+			alert("Wrong login credentials, please try again.");
+		}*/
 
-function Login() {
+		console.log(values);
+		console.log(actions);
+		await new Promise((resolve) => setTimeout(resolve, 3000));
+		actions.resetForm();
+	};
+
 	const {
 		values,
 		errors,
@@ -79,13 +89,14 @@ function Login() {
 					<p className={formStyles.error}>{errors.password}</p>
 				)}
 			</Form.Group>
+
 			<BtnPrimary
+				buttonLabel={isSubmitting ? "Sending..." : "Login"}
 				disabled={
 					isSubmitting ||
 					!isValid ||
 					(Object.keys(touched).length === 0 && touched.constructor === Object)
 				}
-				buttonLabel="Login"
 			/>
 		</Form>
 	);

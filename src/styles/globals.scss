@@ -108,17 +108,17 @@ a {
 	padding: 1.5rem 1rem;
 
 	@media (min-width: 340px) {
-		max-width: 85vw;
+		max-width: 95vw;
 		text-align: center;
 	}
 	@media (min-width: 768px) {
-		max-width: 75vw;
+		max-width: 80vw;
 	}
 	@media (min-width: 1080px) {
-		max-width: 65vw;
+		max-width: 75vw;
 	}
 	@media (min-width: 1490px) {
-		max-width: 55vw;
+		max-width: 65vw;
 	}
 }
 
@@ -141,7 +141,7 @@ a {
 	border: 0.15rem solid map-get($bitsbotsColors, "light-blue") !important;
 	text-shadow: none !important;
 	text-decoration: underline !important;
-	background: map-get($bitsbotsColors, "white-overlay-bg") !important;
+	background: map-get($bitsbotsColors, "white-light") !important;
 }
 
 ul.nav-tabs {

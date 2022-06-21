@@ -35,6 +35,13 @@ function CheckoutForm() {
 			city: "",
 			postalCode: "",
 			country: "",
+			radioCardGroup: "",
+			cardHolder: "",
+			cardNumber: "",
+			expiryMonth: "",
+			expiryYear: "",
+			ccvNumber: "",
+			termsCheck: false,
 		},
 		validationSchema: checkoutSchema,
 		onSubmit,
@@ -162,8 +169,46 @@ function CheckoutForm() {
 					<p className={formStyles.error}>{errors.country}</p>
 				)}
 			</Form.Group>
-			<Container className={formStyles.cardDetailsBlock}>
+			<Container className="mb-3 mt-4">
 				<Heading title="Credit card details" size="3" />
+
+				<Form.Group className="m-3" controlId="radioCardGroup">
+					<Container
+						value={values.radioCardGroup}
+						onChange={handleChange}
+						onBlur={handleBlur}
+						className={
+							errors.radioCardGroup && touched.radioCardGroup
+								? `${formStyles.formControlError}`
+								: !errors.radioCardGroup && touched.radioCardGroup
+								? `${formStyles.formControlSuccess}`
+								: ""
+						}
+					>
+						<Row className="mb-2">
+							<Col sm={{ span: 4 }}>
+								<Form.Check
+									name="radioCardGroup"
+									type="radio"
+									label="Visa"
+									id="visaCardRadio"
+								/>
+							</Col>
+							<Col sm={{ span: 4 }}>
+								<Form.Check
+									name="radioCardGroup"
+									type="radio"
+									label="MasterCard"
+									id="masterCardRadio"
+								/>
+							</Col>
+						</Row>
+					</Container>
+					{errors.radioCardGroup && touched.radioCardGroup && (
+						<p className={formStyles.error}>{errors.radioCardGroup}</p>
+					)}
+				</Form.Group>
+
 				<Form.Group className="mb-3" controlId="cardHolder">
 					<Form.Label>Card holder</Form.Label>
 					<Form.Control
@@ -199,7 +244,7 @@ function CheckoutForm() {
 								: ""
 						}
 						name="cardNumber"
-						type="number"
+						type="text"
 						placeholder="**** **** **** ****"
 					/>
 					{errors.cardNumber && touched.cardNumber && (
@@ -283,6 +328,28 @@ function CheckoutForm() {
 						)}
 					</Form.Group>
 				</Row>
+				<Form.Group as={Row} className="mb-3" controlId="termsCheck">
+					<Col sm={{ span: 12 }}>
+						<Form.Check
+							value={values.termsCheck}
+							onChange={handleChange}
+							onBlur={handleBlur}
+							className={
+								errors.termsCheck && touched.termsCheck
+									? `${formStyles.formControlError}`
+									: !errors.termsCheck && touched.termsCheck
+									? `${formStyles.formControlSuccess}`
+									: ""
+							}
+							name="termsCheck"
+							type="checkbox"
+							label="Accept terms &amp; conditions"
+						/>
+						{errors.termsCheck && touched.termsCheck && (
+							<p className={formStyles.error}>{errors.termsCheck}</p>
+						)}
+					</Col>
+				</Form.Group>
 			</Container>
 			<BtnPrimary
 				buttonLabel="Check out"

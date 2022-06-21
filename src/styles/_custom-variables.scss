@@ -60,7 +60,7 @@ $navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3
 $nav-tabs-border-color: $white;
 $nav-tabs-link-hover-border-color: map-get($bitsbotsColors, "cyan-blue-full");
 $nav-tabs-link-active-color: $black;
-$nav-tabs-link-active-bg: map-get($bitsbotsColors, "white-light");
+$nav-tabs-link-active-bg: map-get($bitsbotsColors, "white-light") !important;
 $nav-tabs-link-active-border-color: map-get($bitsbotsColors, "light-blue");
 
 //Offcanvas
@@ -74,12 +74,16 @@ $link-hover-decoration: underline;
 $link-color: map-get($bitsbotsColors, "dark-blue");
 
 //Borders, Forms, Inputs & Buttons
+
 $border-width: 0.05rem;
 $border-color: map-get($bitsbotsColors, "light-blue");
 $border-radius: 0.3rem;
 $border-radius-sm: 0.3rem;
 $input-border-color: map-get($bitsbotsColors, "light-blue");
 $input-bg: map-get($bitsbotsColors, "white-full") !important;
+
+$form-check-input-checked-bg-color: $input-border-color !important;
+//$form-check-input-checked-color: $input-border-color !important;
 
 $input-btn-padding-y: 0.25rem;
 $input-btn-padding-y-sm: 0.25rem;

@@ -3,7 +3,7 @@ import * as yup from "yup";
 const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 // min 6 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit.
 
-const postalCodeRules = /^([D-d][K-k])?( |-)?[0-9]{0}[0-9]{3}$/;
+const postalCodeRules = /^([D-d][K-k])?( |-)?[0-9]{0}[0-9]{4}$/;
 
 const creditCardNumberRules =
 	/^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
@@ -11,6 +11,8 @@ const creditCardNumberRules =
 const monthExpiryRules = /^(0?[1-9]|1[012])$/;
 
 const yearExpiryRules = /^([0-9]{4}|[0-9]{2})$/;
+
+const ccvNumberRules = /^[0-9]{3,4}$/;
 
 export const loginSchema = yup.object().shape({
 	email: yup
@@ -73,13 +75,19 @@ export const checkoutSchema = yup.object().shape({
 		.min(4, "Please enter a valid country")
 		.max(30, "Please enter a valid country")
 		.required("Country name is required"),
+	radioCardGroup: yup
+		.string()
+		.required("Choosing type of credit card is required"),
 	cardHolder: yup
 		.string()
 		.min(10, "Please enter the full card holder name")
 		.required("Card holder name is required"),
 	cardNumber: yup
 		.string()
-		.matches(creditCardNumberRules, {
+		.trim()
+		.min(16, "Card number should be 16 digits, no spaces")
+		.max(16, "Card number should be 16 digits, no spaces")
+		.matches(creditCardNumberRules, "not empty", {
 			message: "Please enter a valid credit card number",
 		})
 		.required("Credit card number is required"),
@@ -95,4 +103,14 @@ export const checkoutSchema = yup.object().shape({
 			message: "Please enter a valid expiration year",
 		})
 		.required("Expiration year is required"),
+	ccvNumber: yup
+		.string()
+		.matches(ccvNumberRules, {
+			message: "Please enter a valid CCV code - 3 digits",
+		})
+		.required("Expiration year is required"),
+	termsCheck: yup
+		.boolean()
+		.oneOf([true], "Please accept the terms of service")
+		.required("Accepting terms &amp; conditions is required"),
 });
